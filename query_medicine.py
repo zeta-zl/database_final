@@ -38,4 +38,6 @@ class query_medicine_Dialog(query_abstract_Dialog):
         pk_names = dataClass.primary_key_dict[self.database_name]
 
         where_conditions = [f"{pk_names[i]}='{pk_values[i]}'" for i in range(len(pk_values))]
+        if pk_1 == pk_2 == "":
+            where_conditions = "1=1"
         return where_conditions
