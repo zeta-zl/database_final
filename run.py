@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog
 import login
 
 if __name__ == '__main__':
-    for_test = 3
+    for_test = 3333333
     QApp = QApplication(sys.argv)
     login = login.loginDialog()
     login.show()
