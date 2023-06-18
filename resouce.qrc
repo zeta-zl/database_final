@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="login">
+    <file>huashan_login.png</file>
+    <file>huashan_login2.jpeg</file>
+  </qresource>
+</RCC>

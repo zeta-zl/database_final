@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>37</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>病患登录</string>
+    </property>
+    <addaction name="actionreg"/>
+    <addaction name="actionmed"/>
+    <addaction name="actionadmission_quert"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>医生登录</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>设置</string>
+    </property>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_3"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionguahao">
+   <property name="text">
+    <string>guahao </string>
+   </property>
+  </action>
+  <action name="action_reg">
+   <property name="text">
+    <string>挂号</string>
+   </property>
+  </action>
+  <action name="action_med">
+   <property name="text">
+    <string>取药</string>
+   </property>
+  </action>
+  <action name="actionreg">
+   <property name="text">
+    <string>reg</string>
+   </property>
+  </action>
+  <action name="actionmed">
+   <property name="text">
+    <string>med</string>
+   </property>
+  </action>
+  <action name="actionadmission_quert">
+   <property name="text">
+    <string>admission quert</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
