@@ -9,6 +9,8 @@ from PyQt5.QtWidgets import QDialog,QMessageBox
 from Ui_login import Ui_Dialog
 from db import dbop
 from mainWindow_onlypatient import MainWindow_onlypatient
+from query_abstract import query_abstract_Dialog
+from query_medicine import query_medicine_Dialog
 from reg import regDialog
 
 class loginDialog(QDialog, Ui_Dialog):
@@ -24,7 +26,7 @@ class loginDialog(QDialog, Ui_Dialog):
         """
         super(loginDialog, self).__init__(parent)
         self.setupUi(self)
-    
+
     @pyqtSlot()
     def on_pushButton_patientlogin_clicked(self):
         """
@@ -36,14 +38,16 @@ class loginDialog(QDialog, Ui_Dialog):
             QMessageBox.warning(self,"警告","请填写用户名或者密码！")
         else:
             self.checkPatientPwd(username,pwd)
-        
-    
+
+
     @pyqtSlot()
     def on_pushButton_doctorlogin_clicked(self):
         """
         点击医生登录按钮
         """
-    
+        temp = query_medicine_Dialog(self)
+        temp.exec()
+
     @pyqtSlot()
     def on_pushButton_patientreg_clicked(self):
         """
@@ -51,7 +55,7 @@ class loginDialog(QDialog, Ui_Dialog):
         """
         patientreg = regDialog(self)
         patientreg.exec()
-    
+
     @pyqtSlot()
     def on_pushButton_doctorreg_clicked(self):
         """
@@ -59,7 +63,7 @@ class loginDialog(QDialog, Ui_Dialog):
         """
         # TODO: not implemented yet
         raise NotImplementedError
-    
+
     def checkPatientPwd(self,usr,pwd):
         """
         检查用户名和密码是否正确
