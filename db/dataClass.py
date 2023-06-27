@@ -156,6 +156,26 @@ class registration_form_data(dataClass):
         self.registration_date = registration_date
 
 
+class doctor_accounts_data(dataClass):
+    def __init__(self,
+                 doctor_id,
+                 password
+                 ):
+        super().__init__()
+        self.doctor_id = doctor_id
+        self.password = password
+
+
+class patient_accounts_data(dataClass):
+    def __init__(self,
+                 patient_id,
+                 password
+                 ):
+        super().__init__()
+        self.patient_id = patient_id
+        self.password = password
+
+
 if __name__ == '__main__':
     doc = doctor_data(1, 2, 3, 4)
     ls = [(k, v) for k, v in doc.to_dic().items()]

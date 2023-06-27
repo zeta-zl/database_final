@@ -1,7 +1,8 @@
+import hashlib
 from typing import TypeVar
 
-import sharedata, dbClass
-import hashlib
+import dbClass
+import sharedata
 from dataClass import dataClass, primary_key_dict
 
 data_T = TypeVar('data_T', bound=dataClass)
