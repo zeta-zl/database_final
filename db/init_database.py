@@ -73,11 +73,11 @@ create table `registration_form`(
     ''', '''
     CREATE TABLE doctor_accounts (
     doctor_id VARCHAR(20) PRIMARY KEY,
-  password VARCHAR(50) NOT NULL
+  password VARCHAR(70) NOT NULL
 );''', '''
     CREATE TABLE patient_accounts (
   patient_id VARCHAR(20) PRIMARY KEY,
-  password VARCHAR(50) NOT NULL
+  password VARCHAR(70) NOT NULL
 );'''
     ]
 

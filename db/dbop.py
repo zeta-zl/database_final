@@ -23,6 +23,19 @@ def findPatient(usr, pwd):
         return "no_user"
 
 
+def check_login(database_name, id, psw):
+    """
+    判断账户名和密码是否匹配
+    :param database_name: 数据库名
+    :param id: id值
+    :param psw: 密码，未加密
+    :return: 是否匹配
+    """
+    where_clause = "%s_id = %s" % (database_name.split('_')[0], id)
+    _psw = select_from_table(database_name, where_clause)
+    return pwdEncryption(psw) == _psw[0][1]
+
+
 def pwdEncryption(pwd):
     """
     密码加密
@@ -67,7 +80,7 @@ def insert_into_table(table_name, data_object: data_T, commit=False):
     sql = f"INSERT INTO {table_name} ({column_names}) VALUES ({placeholders})"
     params = tuple(data_object.to_dic().values())
 
-    db.execute(sql, params, commit)
+    return db.execute(sql, params, commit)
 
 
 def update_table(table_name, value: data_T, commit=False):
