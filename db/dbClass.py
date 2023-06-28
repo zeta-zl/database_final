@@ -60,9 +60,10 @@ class dbClass():
             return False
 
     def connectdb(self):
+
+        passwd = ""  # 在这里填写密码
+
         try:
-            passwd = ""
-            assert passwd != "", "需要填写本地数据库密码"
             self.conn = pymysql.connect(host='127.0.0.1'  # 连接名称，默认127.0.0.1
                                         , user='root'  # 用户名
                                         , passwd=passwd  # 密码
@@ -73,6 +74,8 @@ class dbClass():
             self.cur = self.conn.cursor()  # 生成游标对象
             return True
         except:
+
+            assert passwd != "", "需要填写本地数据库密码"
             logger.error("数据库连接失败")
             return False
 
