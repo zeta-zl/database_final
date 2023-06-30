@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
 
 """
-Module implementing regDialog.
+Module implementing regdocDialog.
 """
 
 from PyQt5.QtCore import pyqtSlot
-from PyQt5.QtWidgets import QDialog,QMessageBox
+from PyQt5.QtWidgets import QDialog, QMessageBox
 
-from Ui_reg import Ui_Dialog
+from Ui_regdoc import Ui_Dialog
 from db import dbop
 
 
-class regDialog(QDialog, Ui_Dialog):
+class regdocDialog(QDialog, Ui_Dialog):
     """
     Class documentation goes here.
     """
@@ -22,49 +22,47 @@ class regDialog(QDialog, Ui_Dialog):
         @param parent reference to the parent widget
         @type QWidget
         """
-        super(regDialog, self).__init__(parent)
+        super(regdocDialog, self).__init__(parent)
         self.setupUi(self)
     
     @pyqtSlot()
-    def on_pushButton_regit_clicked(self):
+    def on_pushButton_regdoc_pressed(self):
         """
-        Slot documentation goes here.
+        点击医生注册按钮
         """
         username = self.lineEdit_id.text()
         pwd = self.lineEdit_pwd.text()
         pwd_2 = self.lineEdit_pwd_2.text()
         name = self.lineEdit_name.text()
-        id = self.lineEdit_idcardid.text()
-        phone = self.lineEdit_phonenumber.text()
-        if username == "" or pwd == "" or pwd_2 == ""or name == "" or id == "" or phone == "":
-            QMessageBox.warning(self,"警告","请填写完整信息！")
+        title = self.comboBoxtitle.currentText()
+        dept = self.lineEdit_dept.text()
+        if username == "" or pwd == "" or pwd_2 == "" or name == "" or dept == "":
+            QMessageBox.warning(self, "警告", "请填写完整信息！")
         elif pwd != pwd_2:
-            QMessageBox.warning(self,"警告","两次密码不一致！")
+            QMessageBox.warning(self, "警告", "两次密码不一致！")
         elif self.checkpwd(pwd) == False:
-            QMessageBox.warning(self,"警告","密码至少包含八个字符，且包含数字和大小写字母！")
+            QMessageBox.warning(self, "警告", "密码至少包含八个字符，且包含数字和大小写字母！")
         else:
             encrypt_pwd = dbop.pwdEncryption(pwd)
-            user_add_result = dbop.addPatient(username,encrypt_pwd,name,id,phone)
+            user_add_result = dbop.addDoctor(username, encrypt_pwd, name, title, dept)
             if user_add_result == "connect_error":
-                QMessageBox.warning(self,"警告","数据库连接失败！")
+                QMessageBox.warning(self, "警告", "数据库连接失败！")
             elif user_add_result == "user_exist":
-                QMessageBox.warning(self,"警告","当前用户名已存在，请重新输入！")
+                QMessageBox.warning(self, "警告", "当前用户名已存在，请重新输入！")
             elif user_add_result == "excute_error":
-                QMessageBox.warning(self,"警告","数据库执行错误！")
+                QMessageBox.warning(self, "警告", "数据库执行错误！")
             else:
-                QMessageBox.information(self,"提示","注册成功！")
+                QMessageBox.information(self, "提示", "注册成功！")
                 self.close()
 
 
 
-
     @pyqtSlot()
-    def on_pushButton_cancel_clicked(self):
-        '''
+    def on_pushButton_cancel_pressed(self):
+        """
         点击取消按钮
-        '''
+        """
         self.close()
-
 
     def checkpwd(self, pwd):
         '''

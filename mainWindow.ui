@@ -20,21 +20,24 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>37</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
     <property name="title">
      <string>病患登录</string>
     </property>
-    <addaction name="actionreg"/>
-    <addaction name="actionmed"/>
-    <addaction name="actionadmission_quert"/>
+    <addaction name="actionguahao_2"/>
+    <addaction name="actionquyao"/>
+    <addaction name="actionadzhuyuanpat"/>
    </widget>
    <widget class="QMenu" name="menu_2">
     <property name="title">
      <string>医生登录</string>
     </property>
+    <addaction name="actionjiaohao"/>
+    <addaction name="actionkaiyao"/>
+    <addaction name="actionzhuyuandoc"/>
    </widget>
    <widget class="QMenu" name="menu_3">
     <property name="title">
@@ -46,6 +49,17 @@
    <addaction name="menu_3"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
   <action name="actionguahao">
    <property name="text">
     <string>guahao </string>
@@ -61,19 +75,34 @@
     <string>取药</string>
    </property>
   </action>
-  <action name="actionreg">
+  <action name="actionguahao_2">
    <property name="text">
-    <string>reg</string>
+    <string>挂号</string>
    </property>
   </action>
-  <action name="actionmed">
+  <action name="actionquyao">
    <property name="text">
-    <string>med</string>
+    <string>取药</string>
    </property>
   </action>
-  <action name="actionadmission_quert">
+  <action name="actionadzhuyuanpat">
    <property name="text">
-    <string>admission quert</string>
+    <string>住院单</string>
+   </property>
+  </action>
+  <action name="actionjiaohao">
+   <property name="text">
+    <string>叫号</string>
+   </property>
+  </action>
+  <action name="actionkaiyao">
+   <property name="text">
+    <string>开药</string>
+   </property>
+  </action>
+  <action name="actionzhuyuandoc">
+   <property name="text">
+    <string>住院医嘱</string>
    </property>
   </action>
  </widget>

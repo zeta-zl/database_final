@@ -1,12 +1,13 @@
 import sys
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog
+from PyQt5.QtWidgets import QApplication, QMainWindow,QDialog
 
 import login
+from db import sharedata
 
 if __name__ == '__main__':
-    for_test = 26574
+ 
     QApp = QApplication(sys.argv)
     login = login.loginDialog()
     login.show()
