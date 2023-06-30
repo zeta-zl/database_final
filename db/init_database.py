@@ -70,11 +70,20 @@ create table `registration_form`(
     `patient_id` varchar(20),
     `Registration_date` timestamp default current_timestamp
 );
-    ''']
+    ''', '''
+    CREATE TABLE doctor_accounts (
+    doctor_id VARCHAR(20) PRIMARY KEY,
+  password VARCHAR(70) NOT NULL
+);''', '''
+    CREATE TABLE patient_accounts (
+  patient_id VARCHAR(20) PRIMARY KEY,
+  password VARCHAR(70) NOT NULL
+);'''
+    ]
 
     db = dbClass.dbClass()
     for sql in sql_ls:
-        db.execute(sql, commit=False)
+        db.execute(sql, commit=True)
     db.commit()
 
 
@@ -85,7 +94,8 @@ def init_database():
     if result:
         sql = 'select TABLE_NAME from information_schema.tables where table_schema="hospital"'
         result = db.query(sql)
-        if len(result) == 8:  # 已经创建好数据库
+        print(result)
+        if len(result) == 10:  # 已经创建好数据库
             return
         else:
             _init_database()
